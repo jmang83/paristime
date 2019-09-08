@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+     "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+<HEAD>
+<TITLE>A document with SCRIPT</TITLE>
+<META http-equiv="Content-Script-Type" content="text/tcl">
+</HEAD>
+<BODY onload ="redirectGoogle()">
+<SCRIPT type="text/javascript">
+
+var formId = "1FAIpQLSetaNyfMtXK26Go_XQYS-kLtJJ18ESyd0d7Ov8K1Vlh08jVgA";
+var dateField = "entry.1906043834";
+var formsUrl = "https://docs.google.com/forms/d/e/"+ formId + "/viewform?usp=pp_url&" + dateField + "=$$today&entry.1811831418=09:00&entry.263080200=18:00&entry.336985728=Van+Hong";
+
+var today = new Date();
+var redirectUrl = formsUrl.replace("$$today", new Date(today.getTime() - (today.getTimezoneOffset() * 60000)).toISOString().split('T')[0]);
+window.location.replace(redirectUrl);
+
+</SCRIPT>
+</BODY>
+</HTML>
